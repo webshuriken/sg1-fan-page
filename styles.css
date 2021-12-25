@@ -24,7 +24,7 @@ img {
 }
 
 #site-wrapper {
-  background: pink;
+  background: #000;
 }
 
 /* navigation */
@@ -39,23 +39,25 @@ img {
   width: 100%;
   padding-right: 8px;
   padding-left: 8px;
-  background: #282D0C;
-  z-index: 20;
+  background: #3A3D28;
+  box-shadow: 0 1px 14px #280b16;
+  z-index: 60;
 }
 
 #site-title {
   color: #fff;
-  z-index: 21;
+  z-index: 61;
 }
 
 #burger-btn {
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
+  border: 1px solid #282d0c;
   border-radius: 2rem;
-  background: #989D79;
-  color: #fff;
+  background: #fff;
+  color: #3A3D28;
   cursor: pointer;
-  z-index: 22;
+  z-index: 62;
 }
 
 #nav-list {
@@ -73,7 +75,7 @@ img {
   background-repeat: no-repeat;
   background-position: center;
   transform: translateX(-1000px);
-  z-index: 20;
+  z-index: 60;
 }
 #nav-list:before {
   content: "";
@@ -105,7 +107,7 @@ img {
   padding: 12px 8px;
   font-size: 1.4rem;
   font-weight: bold;
-  background: #989D79;
+  background: #EAEDD8;
   color: #282D0C;
 }
 
@@ -131,42 +133,54 @@ img {
 /* Hero section **/
 #hero {
   margin-top: 60px;
-  padding-bottom: 32px;
   background: #000;
-  overflow: hidden;
 }
 
 #hero > picture {
   display: block;
-  height: calc(100vh - 60px);
+  height: auto;
+  max-height: calc(100vh - 60px);
   width: 100%;
 }
 
 #cta-wrapper {
   position: absolute;
-  bottom: 64px;
+  bottom: -64px;
   width: 100%;
-  padding: 16px 8px;
-  background: rgba(33, 33, 33, 0.8);
   text-align: center;
+  z-index: 26;
 }
 
-#cta-wrapper > h2 {
-  font-size: 2.4rem;
-  background: #989D79;
+.cta-link-wrap {
+  max-width: 320px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 52px 0;
+}
+.cta-link-wrap:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  border: 2px solid #EAEDD8;
+  border-radius: 10px;
+  background: #000;
+  opacity: 0.8;
 }
 
-#cta-wrapper > a {
-  width: 200px;
+.cta-link {
+  max-width: 200px;
   border-radius: 8px;
-  margin: 32px auto 0;
+  margin: 0 auto;
   padding: 16px 8px;
   font-size: 1.6rem;
   font-weight: bold;
   background: #EAEDD8;
   color: #000;
 }
-#cta-wrapper > a:before {
+.cta-link:before {
   content: "";
   position: absolute;
   top: -8px;
@@ -178,7 +192,7 @@ img {
   border-top-right-radius: 8px;
   transition: transform 200ms;
 }
-#cta-wrapper > a:after {
+.cta-link:after {
   content: "";
   position: absolute;
   bottom: -8px;
@@ -190,17 +204,17 @@ img {
   border-bottom-left-radius: 8px;
   transition: transform 200ms;
 }
-#cta-wrapper > a:hover:before {
+.cta-link:hover:before {
   transform: translate(6px, -6px);
 }
-#cta-wrapper > a:hover:after {
+.cta-link:hover:after {
   transform: translate(-6px, 6px);
 }
 
 /* about section */
 #about {
-  padding: 64px 8px;
-  background: #7682bd;
+  padding: 120px 8px 64px;
+  background: #EAEDD8;
 }
 
 .about-title {
@@ -213,15 +227,17 @@ img {
   margin: 0 auto;
   padding: 8px;
   font-size: 1.2rem;
+  letter-spacing: 1px;
+  line-height: 30px;
 }
 
 /* characters section */
 #characters {
   padding: 64px 8px;
-  background: #3a3d28;
+  background: #989C79;
 }
 #characters header > h2 {
-  color: #fff;
+  margin-bottom: 32px;
   text-align: center;
 }
 
@@ -236,17 +252,16 @@ img {
 .tile-scene {
   height: 400px;
   width: 94%;
-  margin: 64px auto;
-  background: #282D0C;
+  border-radius: 10px;
+  margin: 28px auto;
   perspective: 600px;
 }
 
 .tile-card {
-  height: calc(100% - 58px);
+  height: calc(100% - 62px);
   width: 100%;
   transition: transform 1s;
   transform-style: preserve-3d;
-  box-shadow: 1px 1px 20px 4px rgba(0, 0, 0, 0.4), 1px 1px 10px rgba(0, 0, 0, 0.3);
   z-index: 24;
 }
 
@@ -254,28 +269,48 @@ img {
   position: absolute;
   height: 100%;
   width: 100%;
+  border: 2px solid #EAEDD8;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  background: #000;
   backface-visibility: hidden;
+  overflow: hidden;
 }
 
 .tile-card__face--front {
   display: flex;
   flex-flow: column wrap;
   justify-content: start;
-  background: #989D79;
 }
 .tile-card__face--front img {
   background: #000;
 }
 .tile-card__face--front h3 {
-  font-size: 1.6rem;
+  padding: 12px 0;
+  color: #EAEDD8;
   text-align: center;
 }
 
 .tile-card__face--back {
-  padding: 8px;
-  background: #686B50;
-  overflow: scroll;
+  padding: 12px 8px;
+  background: #EAEDD8;
+  overflow-y: scroll;
   transform: rotateY(180deg);
+}
+.tile-card__face--back::-webkit-scrollbar {
+  width: 8px;
+}
+.tile-card__face--back::-webkit-scrollbar-track {
+  border-radius: 4px;
+  background: #282D0C;
+}
+.tile-card__face--back::-webkit-scrollbar-thumb {
+  border: 1px solid #282D0C;
+  border-radius: 4px;
+  background: #989D79;
+}
+.tile-card__face--back::-webkit-scrollbar-thumb:hover {
+  background: #686B50;
 }
 
 .tile-card__list {
@@ -285,16 +320,37 @@ img {
 .tile-card__list li {
   width: 100%;
   font-size: 1.2rem;
+  line-height: 30px;
+  letter-spacing: 1px;
 }
 
 .read-more {
   display: block;
   width: 100%;
   border-top: 4px solid #333819;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
   padding: 16px 8px;
   font-size: 1.2rem;
-  background: #686B50;
+  background: #EAEDD8;
   cursor: pointer;
+  transition: transform 234ms;
+}
+.read-more:hover {
+  transform: translateY(4px);
+}
+.read-more:active {
+  transform: translateY(4px) scale(0.9);
+}
+.read-more:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  box-shadow: 1px 2px 14px rgba(0, 0, 0, 0.4);
+  opacity: 0;
 }
 
 .rotate-card {
@@ -304,7 +360,7 @@ img {
 /* vehicles section */
 #vehicles {
   padding: 64px 8px;
-  background: #7682bd;
+  background: #EAEDD8;
 }
 #vehicles header > h2 {
   text-align: center;
@@ -322,6 +378,7 @@ footer {
   text-align: center;
 }
 
+/* Media Queries */
 @media (min-width: 600px) {
   .cards-wrapper {
     flex-flow: row wrap;
@@ -353,6 +410,15 @@ footer {
   }
   #nav-list li {
     transform: translateY(0);
+  }
+
+  /* CTA */
+  #cta-wrapper {
+    bottom: -40px;
+  }
+
+  .cta-link-wrap {
+    padding: 64px 0;
   }
 
   .nav-link {
