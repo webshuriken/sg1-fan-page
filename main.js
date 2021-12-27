@@ -11,8 +11,11 @@ function initMobileMenu() {
   });
   // listen to all clicks on the nav list, disable on screens < 768px
   navList.addEventListener('click', elem => {
-    // toggle navlist
-    navList.classList.toggle('active');
+    // only toggle on viewport < 768px
+    if (window.innerWidth < 768) {
+      // toggle navlist
+      navList.classList.toggle('active');
+    }
   });
 }
 
