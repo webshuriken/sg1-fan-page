@@ -368,11 +368,129 @@ img {
   background: #EAEDD8;
 }
 #vehicles header > h2 {
+  margin-bottom: 32px;
   text-align: center;
 }
 
 .vehicles-carousel {
+  display: flex;
+  height: 280px;
+  max-width: 1000px;
+  margin: auto;
   text-align: center;
+  overflow: hidden;
+}
+
+.vehicles-slide {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  animation-duration: 400ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+  transform: translateX(-100vw);
+}
+.vehicles-slide:nth-child(1) {
+  transform: translateX(0);
+}
+
+.vehicles-slide-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+@keyframes hideSlideRight {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-100vw);
+  }
+}
+@keyframes slideFromRight {
+  0% {
+    opacity: 1;
+    transform: translateX(100vw);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+/* animate slide from right to left */
+@keyframes hideSlideLeft {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100vw);
+  }
+}
+@keyframes slideFromLeft {
+  0% {
+    opacity: 1;
+    transform: translateX(-100vw);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.vehicles-slide__img {
+  display: block;
+  max-width: 520px;
+  margin: auto;
+}
+
+/* caption text */
+.vehicles-slide__caption {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.vehicles-slide__caption > span {
+  display: block;
+  width: 200px;
+  margin: auto;
+  padding: 8px;
+  font-size: 1.2rem;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  text-align: center;
+}
+
+/* next and back buttons */
+.vehicles-slide__btns {
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 12px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  cursor: pointer;
+  transition: 400ms ease;
+  user-select: none;
+}
+.vehicles-slide__btns:hover {
+  transform: scale(1.1);
+}
+
+.vehicles-slide__back {
+  left: 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.vehicles-slide__next {
+  right: 0;
+  border-radius: 4px 0 0 4px;
 }
 
 /* footer section */
@@ -382,9 +500,26 @@ footer {
   color: #fff;
   text-align: center;
 }
+footer > p > a {
+  display: inline-block;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: underline;
+}
 
 /* Media Queries */
+@media (min-width: 400px) {
+  .vehicles-carousel {
+    height: 364px;
+  }
+}
+@media (min-width: 460px) {
+  .vehicles-carousel {
+    height: 400px;
+  }
+}
 @media (min-width: 600px) {
+  /* characters section */
   .cards-wrapper {
     flex-flow: row wrap;
   }
@@ -392,6 +527,15 @@ footer {
   .tile-scene {
     width: 48%;
     margin: 32px auto;
+  }
+
+  /* carousel */
+  #vehicles header > h2 {
+    margin-bottom: 48px;
+  }
+
+  .vehicles-carousel {
+    height: 420px;
   }
 }
 @media (min-width: 768px) {
