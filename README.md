@@ -16,8 +16,11 @@ As a big fan of Stargate SG1, all of the series, I went for it.
 - Pen and paper (design)
 - Mobile first approach
 - HTML5
-- CSS3
+- SASS
 - JavaScript
+
+**Note** even though I used SASS the style.css file is also available so the
+project can be used straight away.
 
 ### Custom creations
 
