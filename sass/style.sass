@@ -48,6 +48,7 @@
   background-repeat: no-repeat
   background-position: center
   transform: translateX(-1000px)
+  transition: transform 220ms
   z-index: 60
   &:before
     content: ''
@@ -76,6 +77,9 @@
   font-weight: bold
   background: #EAEDD8
   color: #282D0C
+  transition: transform 220ms
+  &:active
+    transform: scale(.9)
 
 /* show mobile menu */
 #nav-list.active

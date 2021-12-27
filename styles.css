@@ -75,6 +75,7 @@ img {
   background-repeat: no-repeat;
   background-position: center;
   transform: translateX(-1000px);
+  transition: transform 220ms;
   z-index: 60;
 }
 #nav-list:before {
@@ -109,6 +110,10 @@ img {
   font-weight: bold;
   background: #EAEDD8;
   color: #282D0C;
+  transition: transform 220ms;
+}
+.nav-link:active {
+  transform: scale(0.9);
 }
 
 /* show mobile menu */
