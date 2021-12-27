@@ -1,3 +1,6 @@
+/**
+ * @description Looks after the mobile menu <768px width
+ */
 function initMobileMenu() {
   // get the mobile menu button
   const burgerBtn = document.querySelector('#burger-btn');
@@ -19,6 +22,9 @@ function initMobileMenu() {
   });
 }
 
+/**
+ * @description Flip a card to revel back content
+ */
 function initCardFlip() {
   const card = document.querySelectorAll('.read-more');
   card.forEach(card => {
