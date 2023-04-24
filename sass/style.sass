@@ -1,7 +1,7 @@
 @use 'base'
 
 #site-wrapper
-  background: #000
+  background: var(--theme-black)
 
 /* navigation */
 #navbar
@@ -15,23 +15,26 @@
   width: 100%
   padding-right: 8px
   padding-left: 8px
-  background: #3A3D28
-  box-shadow: 0 1px 14px #280b16
+  background: var(--theme-dark-color)
+  box-shadow: 0 1px 14px var(--theme-box-shadow)
   z-index: 60
 
 #site-title
-  color: #fff
+  color: var(--theme-white)
   z-index: 61
 
 #burger-btn
   height: 40px
   width: 40px
-  border: 1px solid #282d0c
+  border: 1px solid var(--theme-dark-color)
   border-radius: 2rem
-  background: #fff
-  color: #3A3D28
+  background: var(--theme-white)
+  color: var(--theme-dark-color)
   cursor: pointer
   z-index: 62
+  transition: transform .32s
+  &:active
+    transform: scale(.9)
 
 #nav-list
   display: flex
@@ -43,7 +46,7 @@
   height: 100vh
   max-width: 400px
   width: 100%
-  background: silver
+  background: var(--theme-black)
   background-image: url('images/sg1-gate.jpg')
   background-repeat: no-repeat
   background-position: center
@@ -69,14 +72,14 @@
 .nav-link
   max-width: 220px
   width: 94%
-  border: 2px solid #000
+  border: 2px solid var(--theme-black)
   border-radius: 6px
   margin: 16px auto 0
   padding: 12px 8px
   font-size: 1.4rem
   font-weight: bold
-  background: #EAEDD8
-  color: #282D0C
+  background: var(--theme-soft-color)
+  color: var(--theme-dark-color)
   transition: transform 220ms
   &:active
     transform: scale(.9)
@@ -99,7 +102,7 @@
 /* Hero section **/
 #hero
   margin-top: 60px
-  background: #000
+  background: var(--theme-black)
 
 #hero > picture
   display: block
@@ -108,8 +111,6 @@
   width: 100%
 
 #hero > picture > source
-
-#hero-img
 
 #cta-wrapper
   position: absolute
@@ -130,9 +131,9 @@
     top: 0
     height: 100%
     width: 100%
-    border: 2px solid #EAEDD8
+    border: 2px solid var(--theme-soft-color)
     border-radius: 10px
-    background: #000
+    background: var(--theme-black)
     opacity: .8
 
 .cta-link
@@ -142,8 +143,8 @@
   padding: 16px 8px
   font-size: 1.6rem
   font-weight: bold
-  background: #EAEDD8
-  color: #000
+  background: var(--theme-soft-color)
+  color: var(--theme-black)
   &:before
     content: ''
     position: absolute
@@ -151,8 +152,8 @@
     right: -8px
     height: 50%
     width: 100%
-    border-top: 2px solid #EAEDD8
-    border-right: 2px solid #EAEDD8
+    border-top: 2px solid var(--theme-soft-color)
+    border-right: 2px solid var(--theme-soft-color)
     border-top-right-radius: 8px
     transition: transform 200ms
   &:after
@@ -162,19 +163,21 @@
     left: -8px
     height: 50%
     width: 100%
-    border-bottom: 2px solid #EAEDD8
-    border-left: 2px solid #EAEDD8
+    border-bottom: 2px solid var(--theme-soft-color)
+    border-left: 2px solid var(--theme-soft-color)
     border-bottom-left-radius: 8px
     transition: transform 200ms
   &:hover:before
     transform: translate(6px, -6px)
   &:hover:after
     transform: translate(-6px, 6px)
+  &:active
+    box-shadow: 0 0 8px var(--theme-box-shadow) inset
 
 /* about section */
 #about
   padding: 120px 8px 64px
-  background: #EAEDD8
+  background: var(--theme-soft-color)
 
 .about-title
   margin-bottom: 20px
@@ -191,7 +194,7 @@
 /* characters section */
 #characters
   padding: 64px 8px
-  background: #989C79
+  background: var(--theme-medium-color)
   header > h2
     margin-bottom: 32px
     text-align: center
@@ -222,10 +225,10 @@
   position: absolute
   height: 100%
   width: 100%
-  border: 2px solid #EAEDD8
+  border: 2px solid var(--theme-soft-color)
   border-top-right-radius: 10px
   border-top-left-radius: 10px
-  background: #000
+  background: var(--theme-black)
   backface-visibility: hidden
   overflow: hidden
 
@@ -235,29 +238,29 @@
   flex-flow: column wrap
   justify-content: start
   img
-    background: #000
+    background: var(--theme-black)
   h3
     padding: 12px 0
-    color: #EAEDD8
+    color: var(--theme-soft-color)
     text-align: center
 
 // back of card
 .tile-card__face--back
   padding: 12px 8px
-  background: #EAEDD8
+  background: var(--theme-soft-color)
   overflow-y: scroll
   transform: rotateY(180deg)
   &::-webkit-scrollbar
     width: 8px
   &::-webkit-scrollbar-track
     border-radius: 4px
-    background: #282D0C
+    background: var(--theme-dark-color)
   &::-webkit-scrollbar-thumb
-    border: 1px solid #282D0C
+    border: 1px solid var(--theme-dark-color)
     border-radius: 4px
-    background: #989D79
+    background: var(--theme-medium-color)
   &::-webkit-scrollbar-thumb:hover
-    background: #686B50
+    background: var(--theme-soft-color)
 
 .tile-card__list
   display: flex
@@ -271,12 +274,12 @@
 .read-more
   display: block
   width: 100%
-  border-top: 4px solid #333819
+  border-top: 4px solid var(--theme-dark-color)
   border-bottom-right-radius: 10px
   border-bottom-left-radius: 10px
   padding: 16px 8px
   font-size: 1.2rem
-  background: #EAEDD8
+  background: var(--theme-soft-color)
   cursor: pointer
   transition: transform 234ms
   &:hover
@@ -290,7 +293,7 @@
     left: 0
     height: 100%
     width: 100%
-    box-shadow: 1px 2px 14px rgb(0,0,0, 0.4)
+    box-shadow: 1px 2px 14px var(--theme-box-shadow)
     opacity: 0
 
 .rotate-card
@@ -299,7 +302,7 @@
 /* vehicles section */
 #vehicles
   padding: 64px 8px
-  background: #EAEDD8
+  background: var(--theme-soft-color)
   header > h2
     margin-bottom: 32px
     text-align: center
@@ -380,7 +383,7 @@
     padding: 8px
     font-size: 1.2rem
     background: rgba(0,0,0,.8)
-    color: #fff
+    color: var(--theme-white)
     text-align: center
 
 /* next and back buttons */
@@ -392,7 +395,7 @@
   font-size: 1.4rem
   font-weight: bold
   background: rgba(0,0,0,.8)
-  color: #fff
+  color: var(--theme-white)
   cursor: pointer
   transition: 400ms ease
   user-select: none
@@ -411,13 +414,13 @@
 /* footer section */
 footer
   padding: 64px 8px 12px
-  background: #3A3D28
-  color: #fff
+  background: var(--theme-dark-color)
+  color: var(--theme-white)
   text-align: center
   > p > a
     display: inline-block
     font-weight: bold
-    color: #fff
+    color: var(--theme-white)
     text-decoration: underline
 
 /* Media Queries */
