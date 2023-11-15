@@ -1,0 +1,41 @@
+{
+  "name": "sg1-fan-page",
+  "version": "1.0.0",
+  "description": "Stargate fan made website, for learning and fun.",
+  "main": "main.js",
+  "scripts": {
+    "html-server": "reload -b -p 8084",
+    "sass-to-css": "sass --watch sass/style.sass styles.css",
+    "build": "gulp build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webshuriken/sg1-fan-page.git"
+  },
+  "keywords": [
+    "stargate",
+    "sg1",
+    "atlantis",
+    "universe"
+  ],
+  "author": "Carlos E Alford",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/webshuriken/sg1-fan-page/issues"
+  },
+  "homepage": "https://github.com/webshuriken/sg1-fan-page#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "cssnano": "^6.0.1",
+    "eslint": "^8.53.0",
+    "eslint-plugin-compat": "^4.2.0",
+    "gulp": "^4.0.2",
+    "gulp-cli": "^2.3.0",
+    "gulp-postcss": "^9.0.1",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-terser": "^2.1.0",
+    "prettier": "^3.1.0",
+    "reload": "^3.2.1"
+  }
+}
