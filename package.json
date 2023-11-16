@@ -1,6 +1,6 @@
 {
   "name": "sg1-fan-page",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Stargate fan made website, for learning and fun.",
   "main": "main.js",
   "type": "module",
