@@ -1,23 +1,51 @@
 name: Deploy Site
+
 run-name: ${{ github.actor }} just pushed to the development branch
+
 on:
   push:
     # we will only build on push to development branch
     branches:
       - 'development'
+
 jobs:
-  validate-and-deploy:
+  # Build job
+  build:
     runs-on: ubuntu-latest
     steps:
       - run: echo "The job was triggered by ${{ github.event_name }} event."
       - run: echo "The job is running on a ${{ runner.os }} server."
       - run: echo "The name of the branch is ${{ github.ref }} on repo ${{ github.repository }}"
       - name: Check out the repo code
-      - uses: actions/checkout@4
-      - uses: actions/setup-node@v3
+        uses: actions/checkout@4
+      - name: Setup node
+        uses: actions/setup-node@v3
         with:
           node-version: '18'
       - run: npm install
       - run: echo "The workflow is ready to validate and build the code on the runner"
       - run: npm run build
+      - name: Upload pages artifact
+        uses: actions/upload-pages-artifact@v2
       - run: echo "Current job status ${{ job.status }}"
+
+  # Deploy job
+  deploy:
+    # Deployment depends on the build job
+    needs: build
+    # Grant GITHUB_TOKEN the permissions required
+    permissions:
+      pages: write # to deploy to Pages
+      id-token: write # to verify deployment originates from an appropriate source
+
+    # Deploy the github-pages environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    # Specify runner + deployment step
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
