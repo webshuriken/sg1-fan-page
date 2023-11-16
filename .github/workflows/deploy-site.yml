@@ -6,7 +6,7 @@ on:
   push:
     # we will only build on push to development branch
     branches:
-      - 'development'
+      - development
 
 jobs:
   # Build job
