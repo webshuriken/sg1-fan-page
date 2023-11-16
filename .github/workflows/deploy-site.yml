@@ -1,7 +1,5 @@
 name: Deploy Site
-
 run-name: ${{ github.actor }} just pushed to the development branch
-
 on:
   push:
     # we will only build on push to development branch
