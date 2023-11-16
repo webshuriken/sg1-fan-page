@@ -1,0 +1,23 @@
+name: Deploy Site
+run-name: ${{ github.actor }} just pushed to the development branch
+on:
+  push:
+    # we will only build on push to development branch
+    branches:
+      - 'development'
+jobs:
+  validate-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "The job was triggered by ${{ github.event_name }} event."
+      - run: echo "The job is running on a ${{ runner.os }} server."
+      - run: echo "The name of the branch is ${{ github.ref }} on repo ${{ github.repository }}"
+      - name: Check out the repo code
+      - uses: actions/checkout@4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - run: npm install
+      - run: echo "The workflow is ready to validate and build the code on the runner"
+      - run: npm run build
+      - run: echo "Current job status ${{ job.status }}"
