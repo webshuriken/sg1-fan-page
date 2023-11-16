@@ -540,17 +540,14 @@ footer > p > a {
   .cards-wrapper {
     flex-flow: row wrap;
   }
-
   .tile-scene {
     width: 48%;
     margin: 32px auto;
   }
-
   /* carousel */
   #vehicles header > h2 {
     margin-bottom: 48px;
   }
-
   .vehicles-carousel {
     height: 420px;
   }
@@ -563,7 +560,6 @@ footer > p > a {
     width: 1px;
     left: -1000px;
   }
-
   #nav-list {
     flex-flow: row nowrap;
     align-items: center;
@@ -577,16 +573,13 @@ footer > p > a {
   #nav-list li {
     transform: translateY(0);
   }
-
   /* CTA */
   #cta-wrapper {
     bottom: -40px;
   }
-
   .cta-link-wrap {
     padding: 64px 0;
   }
-
   .nav-link {
     width: 136px;
     border: none;
@@ -600,7 +593,6 @@ footer > p > a {
   .nav-link:active {
     transform: translateY(4px) scale(0.9);
   }
-
   #about > p {
     line-height: 34px;
   }
