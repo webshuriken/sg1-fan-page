@@ -15,7 +15,7 @@ jobs:
       - run: echo "The job is running on a ${{ runner.os }} server."
       - run: echo "The name of the branch is ${{ github.ref }} on repo ${{ github.repository }}"
       - name: Check out the repo code
-        uses: actions/checkout@4
+        uses: actions/checkout@v4
       - name: Setup node
         uses: actions/setup-node@v3
         with:
