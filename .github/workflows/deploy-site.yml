@@ -34,7 +34,7 @@ jobs:
         uses: actions/upload-pages-artifact@v2
         with:
           name: built-site
-          path: ./
+          path: "."
 
       - run: echo "Current job status ${{ job.status }}"
 
@@ -55,15 +55,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Download artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: built-site
-          path: ./
-
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
