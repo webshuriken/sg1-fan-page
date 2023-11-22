@@ -1,38 +1,49 @@
 name: Deploy Site
-
 run-name: ${{ github.actor }} just pushed to the development branch
-
 on:
   push:
     # we will only build on push to development branch
     branches:
-      - development
+      - main
 
 jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
+
     steps:
       - run: echo "The job was triggered by ${{ github.event_name }} event."
       - run: echo "The job is running on a ${{ runner.os }} server."
       - run: echo "The name of the branch is ${{ github.ref }} on repo ${{ github.repository }}"
-      - name: Check out the repo code
-        uses: actions/checkout@4
-      - name: Setup node
+
+      - name: Checkout the repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
-      - run: npm install
-      - run: echo "The workflow is ready to validate and build the code on the runner"
-      - run: npm run build
-      - name: Upload pages artifact
+          node-version: 18
+
+      - name: Install npm dependencies
+        run: npm install
+
+      - name: Build the site
+        run: npm run build
+
+      - name: Upload pages artifacts
         uses: actions/upload-pages-artifact@v2
+        with:
+          name: built-site
+          path: ./
+
       - run: echo "Current job status ${{ job.status }}"
 
   # Deploy job
   deploy:
     # Deployment depends on the build job
     needs: build
+    runs-on: ubuntu-latest
+
     # Grant GITHUB_TOKEN the permissions required
     permissions:
       pages: write # to deploy to Pages
@@ -43,9 +54,17 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
-    # Specify runner + deployment step
-    runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: built-site
+          path: ./
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
+
