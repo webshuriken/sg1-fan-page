@@ -1,3 +1,4 @@
+// updated: 2022
 export function wsGallerySlider() {
   let e = 0;
   function t(t) {

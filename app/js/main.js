@@ -1,3 +1,4 @@
+// updated: 2022
 import { wsGallerySlider } from "./gallery-slider.js";
 function initMobileMenu() {
   const e = document.querySelector("#burger-btn"),
