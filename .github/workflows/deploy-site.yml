@@ -4,7 +4,7 @@ on:
   push:
     # we will only build on push to development branch
     branches:
-      - development
+      - main
 
 jobs:
   # Build job
