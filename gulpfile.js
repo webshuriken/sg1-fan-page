@@ -1,6 +1,7 @@
 import prettier from "gulp-prettier";
 import pkg from "gulp";
 import sourcemaps from "gulp-sourcemaps";
+import replace from 'gulp-replace';
 // css
 import postcss from "gulp-postcss";
 import autoprefixer from "autoprefixer";
@@ -29,6 +30,14 @@ function validate () {
     .pipe(eslint.failAfterError())
 }
 
+// update css and js folder locations
+function html() {
+  return src('index.html')
+    .pipe(replace('app/js/main.js', 'js/main.js'))
+    .pipe(replace('app/css/styles.css', 'css/styles.css'))
+    .pipe(dest('dist/'))
+}
+
 // improve browser support and minify
 function css() {
   return src("app/css/styles.css")
@@ -48,4 +57,4 @@ function javascript() {
 }
 
 // build the site
-export const build = series(clean, validate, css, javascript);
+export const build = series(clean, validate, css, javascript, html);
