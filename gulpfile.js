@@ -2,6 +2,7 @@ import prettier from "gulp-prettier";
 import pkg from "gulp";
 import sourcemaps from "gulp-sourcemaps";
 import replace from 'gulp-replace';
+import imagemin from "gulp-imagemin";
 // css
 import postcss from "gulp-postcss";
 import autoprefixer from "autoprefixer";
@@ -10,7 +11,7 @@ import cssnano from "cssnano";
 import eslint from "gulp-eslint-new";
 import terser from "gulp-terser";
 
-const { series, src, dest } = pkg;
+const { series, parallel, src, dest } = pkg;
 
 // make sure js uses single quotes sprinkle with eslint and html/js use double space
 export default function clean() {
@@ -56,5 +57,12 @@ function javascript() {
     .pipe(dest('dist/js'))
 }
 
+// minify images used on the site
+function minifyImages() {
+  return src("images/*")
+    .pipe(imagemin())
+    .pipe(dest("dist/images"))
+}
+
 // build the site
-export const build = series(clean, validate, css, javascript, html);
+export const build = parallel(series(clean, validate, css, javascript, html), minifyImages);
