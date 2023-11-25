@@ -33,10 +33,10 @@ function validate () {
 
 // update css and js folder locations
 function html() {
-  return src('index.html')
-    .pipe(replace('app/js/main.js', 'js/main.js'))
-    .pipe(replace('app/css/styles.css', 'css/styles.css'))
-    .pipe(dest('dist/'))
+  return src("index.html")
+    .pipe(replace("app/js/main.js", "js/main.js"))
+    .pipe(replace("app/css/styles.css", "css/styles.css"))
+    .pipe(dest("dist/"))
 }
 
 // improve browser support and minify
@@ -45,7 +45,7 @@ function css() {
     .pipe(sourcemaps.init())
     .pipe(postcss([autoprefixer(), cssnano()]))
     .pipe(sourcemaps.write("."))
-    .pipe(dest('dist/css'))
+    .pipe(dest("dist/css"))
 }
 
 // lets take terser and minify the js
@@ -54,12 +54,14 @@ function javascript() {
     .pipe(sourcemaps.init())
     .pipe(terser())
     .pipe(sourcemaps.write("."))
-    .pipe(dest('dist/js'))
+    .pipe(dest("dist/js"))
 }
 
 // minify images used on the site
 function minifyImages() {
-  return src("images/*")
+  return src("images/*.webp")
+    .pipe(dest("dist/images"))
+    .pipe(src(["images/*", "!images/*.webp", "!images/screenshot"]))
     .pipe(imagemin())
     .pipe(dest("dist/images"))
 }
