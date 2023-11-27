@@ -46,21 +46,21 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
 
+    # Grant GITHUB_TOKEN the permissions required
+    permissions:
+      pages: write # to deploy to Pages
+      id-token: write # to verify deployment originates from an appropriate source
+
+    # Deploy the github-pages environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-
-      - name: Download artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: built-site
-          path: dist
-
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        id: deployment
+        uses: actions/deploy-pages@v2
         with:
-          publish_branch: gh-pages
-          publish_dir: ./dist
-          clean: true
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ github.token }}
+          artifact_name: built-site
 
