@@ -34,8 +34,10 @@ jobs:
         uses: actions/upload-pages-artifact@v2
         with:
           name: built-site
-          path: "dist"
+          path: dist
 
+      - run: echo "Your directory looks like"
+      - run: ls
       - run: echo "Current job status ${{ job.status }}"
 
   # Deploy job
@@ -55,7 +57,20 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Download artifacts
+        uses: actions/download-actifact@v2
+        with:
+          name: built-site
+          path: dist
+
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
+        uses: JamesIves/github-pages-deploy-action@4.1.6
+        with:
+          branch: gh-pages
+          folder: dist
+          clean: true
+          token: ${{ secrets.GITHUB_TOKEN }}
 
