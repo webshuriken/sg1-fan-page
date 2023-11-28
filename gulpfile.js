@@ -13,14 +13,11 @@ import terser from "gulp-terser";
 
 const { series, parallel, src, dest } = pkg;
 
-// make sure js uses single quotes sprinkle with eslint and html/js use double space
+// make sure js uses single quotes sprinkle with eslint and js use double space
 export default function clean() {
   return src("app/js/*.js")
     .pipe(prettier({ singleQuotes: true }))
     .pipe(dest((file) => file.base))
-    .pipe(src("*.html"))
-    .pipe(prettier())
-    .pipe(dest((file) => file.base));
 }
 
 // lint the js file
