@@ -36,8 +36,6 @@ jobs:
           name: built-site
           path: dist
 
-      - run: echo "Your directory looks like"
-      - run: ls
       - run: echo "Current job status ${{ job.status }}"
 
   # Deploy job
