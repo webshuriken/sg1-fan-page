@@ -8,7 +8,7 @@
     "html-server": "reload -b -p 8084",
     "sass-to-css": "sass --watch app/sass/style.sass app/css/styles.css",
     "build": "gulp build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/webshuriken/sg1-fan-page#readme",
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
     "autoprefixer": "^10.4.16",
     "cssnano": "^6.0.1",
     "eslint-config-standard": "^17.1.0",
@@ -43,6 +44,8 @@
     "gulp-replace": "^1.1.4",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-terser": "^2.1.0",
+    "jest": "^30.2.0",
+    "jest-environment-jsdom": "^30.2.0",
     "reload": "^3.2.1"
   },
   "broswerslist": [

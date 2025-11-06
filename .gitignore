@@ -1,2 +1,5 @@
 research/
 node_modules/
+dist/
+coverage/
+.jest-cache/
