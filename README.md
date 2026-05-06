@@ -84,4 +84,4 @@ project can be used straight away.
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT](LICENSE)
