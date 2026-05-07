@@ -2,11 +2,11 @@
 
 Fan made page for Stargate (SG1) tv series, a show that I loved growing up.
 
+:rocket: [visit site](https://webshuriken.github.io/sg1-fan-page)
+
 ## About
 
 This page was a 1 week challenge to create a fan made site of a tv show or movie of our choosing. As a big fan of Stargate SG1, including Atlantis and Universe, I went for it.
-
-:rocket: [visit site](https://webshuriken.github.io/sg1-fan-page)
 
 ![App large Screenshot](./images/screenshot/screenshot-1.png)
 
