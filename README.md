@@ -1,25 +1,35 @@
-# Stargate Fan Made Page
+# Stargate Fan Made Page :tv:
 
 Fan made page for Stargate (SG1) tv series, a show that I loved growing up.
 
 ## About
 
-This page was a 1 week challenge set by [@cbccss](https://twitter.com/cbccss).
-The goal, to create a fan made site of a tv show or movie of our choosing.
+This page was a 1 week challenge to create a fan made site of a tv show or movie of our choosing. As a big fan of Stargate SG1, including Atlantis and Universe, I went for it.
 
-As a big fan of Stargate SG1, all of the series, I went for it.
+:rocket: [visit site](https://webshuriken.github.io/sg1-fan-page)
 
-Visit [live site](https://webshuriken.github.io/sg1-fan-page)
+![App large Screenshot](./images/screenshot/screenshot-1.png)
+
+
+## Tech Stack
+
+- Pen and paper (design)
+- Mobile first approach
+- HTML5
+- SASS
+- JavaScript
 
 ## Features
 
 Really enjoyed coding these two features, specially the carousel as it was a bit more challenging.
 
-**Flip card** for the characters section.
+1. **Flip card** for the characters section.
+
 Each person gets their own card with the profile picture at the front and a
 little bio at the back. JS is only used to toggle between class names.
 
-**Endless Carousel** for the vehicles section.
+2. **Endless Carousel** for the vehicles section.
+
 Created a custom endless carousel to show case the vehicles from the show.
 Could not find somewhere to guide me on this and the other options was to use
 Bootstrap (but did not want to add it just for this) so I created it fresh.
@@ -29,36 +39,6 @@ It uses translate and opacity which does not mess with Paint on a browser to
 make smooth transitions.
 
 ![Endless carousel demo](./images/screenshot/sg1-fan-page-demo.gif)
-
-## Screenshots
-
-**large screens** screenshot
-
-![App large Screenshot](./images/screenshot/screenshot-1.png)
-
-**mobile screens** screenshot
-
-![App mobile Screenshot](./images/screenshot/screenshot-2.png)
-
-## Color Reference
-
-| Color             | Hex                                                                |
-| ----------------- | ------------------------------------------------------------------ |
-| soft colour | ![#EAEDD8](https://via.placeholder.com/10/EAEDD8?text=+) #EAEDD8 |
-| medium colour | ![#989C79](https://via.placeholder.com/10/989C79?text=+) #989C79 |
-| dark colour | ![#3A3D28](https://via.placeholder.com/10/3A3D28?text=+) #3A3D28 |
-| black | ![#000000](https://via.placeholder.com/10/000000?text=+) #000000 |
-| white | ![#ffffff](https://via.placeholder.com/10/ffffff?text=+) #ffffff |
-| box-shadow | ![#280b16](https://via.placeholder.com/10/280b16?text=+) #280b16 |
-| Blue | ![#09095F](https://via.placeholder.com/10/09095F?text=+) #09095F |
-
-## Tech Stack
-
-- Pen and paper (design)
-- Mobile first approach
-- HTML5
-- SASS
-- JavaScript
 
 **Note** even though I used SASS the style.css file is also available so the
 project can be used straight away.
